@@ -6,16 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}CCM TJ AL{% endblock %}</title>
     {% load static %}
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="{% static '/ccmtj/css/styles.css' %}" rel="stylesheet">
     <style>
         body {
-            background: transparent linear-gradient(0deg, #071F49 44%, #1D1D1B 100%) 0% 0% no-repeat padding-box;
+            background: transparent linear-gradient(0deg, #071F49 54%, #1D1D1B 100%) 0% 0% no-repeat padding-box;
         }
     </style>
 </head>
 
-<body class="min-h-screen flex items-center justify-center">
+<body class="min-h-screen flex flex-col items-center justify-start">
+    <img src="{% static 'ccmtj/images/logo-ccmtj.png' %}" alt="APP CCMTJAL" class="w-40 h-40 mt-1">
 
+    <!-- Grid Botoes -->
+    <div class="grid grid-cols-2 gap-x-28 gap-y-10">
+        <!-- Botao Ler QRCODE -->
+        <a href="#" class="flex flex-col items-center space-y-2 w-full">
+            <img src="{% static 'ccmtj/icons/escanear.svg' %}" alt="Escanear" class="w-12 h-12">
+            <span class="text-sm font-FuturaMedium text-white">LER QRCODE</span>
+        </a>
+        <!-- Botao Selfie Histórica -->
+        <a href="{% url 'selfie_historica' %}" class="flex flex-col items-center space-y-2 w-full">
+            <img src="{% static 'ccmtj/icons/selfie.svg' %}" alt="Escanear" class="w-12 h-12">
+            <span class="text-sm font-FuturaMedium text-white">SELFIE HISTÓRICA</span>
+        </a>
+        <!-- Botao Agenda-->
+        <a href="#" class="flex flex-col items-center space-y-2 w-full">
+            <img src="{% static 'ccmtj/icons/agenda.svg' %}" alt="Escanear" class="w-12 h-12">
+            <span class="text-sm font-FuturaMedium text-white">AGENDA</span>
+        </a>
+        <!-- Botao leve para Casa -->
+        <a href="#" class="flex flex-col items-center space-y-2 w-full">
+            <img src="{% static 'ccmtj/icons/home.svg' %}" alt="Escanear" class="w-12 h-12">
+            <span class="text-sm font-FuturaMedium text-white">LEVE PARA CASA</span>
+        </a>
+        <!-- Botao Acessibilidade -->
+        <a href="#" class="flex flex-col items-center space-y-2 w-full">
+            <img src="{% static 'ccmtj/icons/acessibilidade.svg' %}" alt="Escanear" class="w-12 h-12">
+            <span class="text-sm font-FuturaMedium text-white">ACESSIBILIDADE</span>
+        </a>
+        <!-- Botao CCNTJAL -->
+        <a href="#" class="flex flex-col items-center space-y-2 w-full">
+            <img src="{% static 'ccmtj/icons/ccmtjal.svg' %}" alt="Escanear" class="w-12 h-12">
+            <span class="text-sm font-FuturaMedium text-white">CCMTJAL</span>
+        </a>
+    </div>
+    <div class="flex items-center justify-between w-80 h-24 rounded-full mt-14 pr-10 bg-black">
+        <div class="flex-shrink-0">
+            <img src="{% static 'ccmtj/icons/mao-com-celular.svg' %}" alt="Mao com celular" class="w-16 h-32 object-cover">
+        </div>
+        <span class="text-white font-FuturaLight text-sm flex-1 text-center pl-4">
+            Aponte a câmera do celular para 
+            <span class="font-FuturaBold">um QRCODE</span> 
+            nos painéis, e tenha uma experiência ampliada
+        </span>
+    </div>
+    <div class="flex flex-col items-center mt-6">
+        <a href="#" class="flex flex-col items-center space-y-2">
+            <img src="{% static 'ccmtj/icons/info-app.svg' %}" alt="Info App" class="h-5 w-5">
+            <span class="text-xs font-FuturaBook text-white">SOBRE O APP</span>
+        </a>
+    </div>
 </body>
 
 </html>

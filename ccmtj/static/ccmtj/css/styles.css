@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'FuturaMedium';
+    src: url(../fonts/FuturaPTMedium.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.font-FuturaMedium {
+    font-family: 'FuturaMedium', sans-serif;
+}
+
+@font-face {
+    font-family: 'FuturaLight';
+    src: url(../fonts/FuturaPTLight.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.font-FuturaLight {
+    font-family: 'FuturaLight', sans-serif;
+}
+
+@font-face {
+    font-family: 'FuturaBold';
+    src: url(../fonts/FuturaPTBold.otf) format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+.font-FuturaBold {
+    font-family: 'FuturaBold', sans-serif;
+}
+
+@font-face {
+    font-family: 'FuturaBook';
+    src: url(../fonts/FuturaPTBook.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.font-FuturaBook {
+    font-family: 'FuturaBook', sans-serif;
+}
