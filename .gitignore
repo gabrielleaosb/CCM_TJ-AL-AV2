@@ -1,1 +1,6 @@
 prototipo.txt
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+venv/
