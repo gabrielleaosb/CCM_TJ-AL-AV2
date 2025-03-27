@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CCM TJ AL{% endblock %}</title>
+    {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="{% static '/ccmtj/css/styles.css' %}" rel="stylesheet">
+    <script src="{% static 'ccmtj/js/selfie.js' %}"></script>
+</head>
+
+<body class="h-screen flex flex-col items-center justify-start bg-[#071F49]">
+    <nav
+        class="fixed top-0 left-0 bg-[#943130] flex flex-row items-center h-[64px] w-[238px] rounded-br-full justify-center gap-4">
+        <a href="{% url 'home' %}"
+            class="flex items-center justify-center w-10 h-10 bg-[#071F49] rounded-full ml-[-6px]">
+            <img src="{% static 'ccmtj/icons/seta-voltar-pagina.svg' %}" alt="Botao voltar página inicial"
+                class="w-6 h-12 object-contain">
+        </a>
+        <a href="#" class="flex items-center justify-center w-14 h-14">
+            <img src="{% static 'ccmtj/icons/escanear.svg' %}" alt="Botao escanear QRCODE"
+                class="w-14 h-14 object-contain">
+        </a>
+        <a href="{% url 'home' %}" class="flex items-center justify-center w-14 h-14 ml-[-6px]">
+            <img src="{% static 'ccmtj/icons/home.svg' %}" alt="Botao escanear QRCODE" class="w-12 h-12 object-contain">
+        </a>
+    </nav>
+
+    <img src="{% static 'ccmtj/images/logo-ccmtj.png' %}" alt="Logo CCMTJAL"
+        class="w-[104px] h-[104px] mt-28 mb-[42px]">
+
+    <div class="w-[273px] h-[69px] bg-[#943130] rounded-full flex flex-row justify-left items-center gap-2">
+        <img src="{% static 'ccmtj/icons/selfie.svg' %}" alt="Icone Selfie" class="w-14 h-14 ml-[26px]">
+        <span class="font-FuturaMedium text-white text-[18px]">SELFIE HISTÓRICA</span>
+    </div>
+
+    <div class="flex flex-col items-center gap-4 mt-[56px]">
+        <!-- Controle de Navegação entre imagens -->
+        <div class="flex flex-row items-center gap-10 mb-6">
+            <button id="prev"
+                class="w-[35px] h-[35px] flex items-center justify-center bg-white rounded-full cursor-pointer">
+                <img src="{% static 'ccmtj/icons/seta-em-selfie.svg' %}" alt="Seta esquerda" class="w-10 h-10">
+            </button>
+
+            <div class="flex flex-col items-center justify-center">
+                <span class="text-white font-FuturaDemi text-[18px]">TIRE UMA SELFIE COM UM</span>
+                <span class="text-white font-FuturaBold text-[18px]">PERSONAGEM DA HISTÓRIA</span>
+            </div>
+            <button id="next"
+                class="w-[35px] h-[35px] flex items-center justify-center bg-white rounded-full cursor-pointer">
+                <img src="{% static 'ccmtj/icons/seta-em-selfie.svg' %}" alt="Seta esquerda" class="w-10 h-10">
+            </button>
+        </div>
+
+        <div class="relative">
+            {% if thumbs %}
+                <h2 class="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white font-FuturaDemi text-[20px] whitespace-nowrap"
+                    id="image-name">{{ thumbs.0.nome }}</h2>
+                <img id="displayed-image" src="{{ thumbs.0.imagem.url }}" alt="Imagem atual"
+                    class="w-[311px] h-[380px] border-2 border-l-1 border-white" id="image-to-display">
+            {% else %}
+                <p>Não há imagens disponíveis.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <footer class="w-full min-h-[75px] bg-black flex items-center justify-center opacity-15 mt-40">
+        <p class="text-white font-FuturaMedium text-[17px]">Imagens meramente ilustrativas</p>
+    </footer>
+    
+    <script>
+        const thumbs = [
+            {% for thumb in thumbs %}
+            {
+                "imagem": "{{ thumb.imagem.url }}",
+                "nome": "{{ thumb.nome }}"
+            },
+            {% endfor %}
+        ];
+
+        let currentIndex = 0;
+
+        function updateImage() {
+            const imageElement = document.getElementById('displayed-image');
+            const nameElement = document.getElementById('image-name');
+            if (thumbs.length > 0) {
+                imageElement.src = thumbs[currentIndex].imagem;
+                nameElement.innerText = thumbs[currentIndex].nome;
+            }
+        }
+
+        document.getElementById('prev').addEventListener('click', function () {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = thumbs.length - 1;
+            }
+            updateImage();
+        });
+
+        document.getElementById('next').addEventListener('click', function () {
+            if (currentIndex < thumbs.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            updateImage();
+        });
+        updateImage();
+    </script>
+</body>
+
+</html>

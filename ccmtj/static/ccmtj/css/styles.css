@@ -41,3 +41,14 @@
 .font-FuturaBook {
     font-family: 'FuturaBook', sans-serif;
 }
+
+@font-face {
+    font-family: 'FuturaDemi';
+    src: url(../fonts/FuturaPTDemi.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.font-FuturaDemi {
+    font-family: 'FuturaDemi', sans-serif;
+}
