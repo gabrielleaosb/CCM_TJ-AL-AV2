@@ -38,7 +38,7 @@
 
     <div class="flex flex-col items-center gap-4 mt-[56px]">
         <!-- Controle de Navegação entre imagens -->
-        <div class="flex flex-row items-center gap-10 mb-6">
+        <div class="flex flex-row items-center gap-10 mb-6" id="image-navbar">
             <button id="prev"
                 class="w-[35px] h-[35px] flex items-center justify-center bg-white rounded-full cursor-pointer">
                 <img src="{% static 'ccmtj/icons/seta-em-selfie-azul.svg' %}" alt="Seta esquerda" class="w-4 h-4 scale-x-[-1]">
@@ -59,7 +59,7 @@
                 <h2 class="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white font-FuturaDemi text-[20px] whitespace-nowrap"
                     id="image-name">{{ thumbs.0.nome }}</h2>
                 <img id="displayed-image" src="{{ thumbs.0.imagem.url }}" alt="Imagem atual"
-                    class="w-[311px] h-[380px] border-2 border-l-1 border-white" id="image-to-display">
+                    class="w-[311px] h-[380px] border-2 border-l-1 border-white cursor-pointer" id="image-to-display">
             {% else %}
                 <p>Não há imagens disponíveis.</p>
             {% endif %}
@@ -75,7 +75,7 @@
             {% for thumb in thumbs %}
             {
                 "imagem": "{{ thumb.imagem.url }}",
-                "nome": "{{ thumb.nome }}"
+                "nome": "{{ thumb.nome }}",
             },
             {% endfor %}
         ];
@@ -108,6 +108,13 @@
             }
             updateImage();
         });
+
+        document.getElementById('displayed-image').addEventListener('click', function () {
+            this.style.display = "none";
+            document.getElementById('image-name').style.display = "none";
+            document.getElementById('image-navbar').style.display = "none";
+        })
+
         updateImage();
     </script>
 </body>
