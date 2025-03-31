@@ -10,3 +10,6 @@ def selfie_historica(request):
 
 def qr_scan(request):
     return render(request, 'ccmtj/qr-scan.html')
+
+def agenda(request):
+    return render(request, 'ccmtj/agenda.html')
