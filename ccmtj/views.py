@@ -16,3 +16,9 @@ def agenda(request):
 
 def acessibilidade(request):
     return render(request, 'ccmtj/acessibilidade.html')
+
+def ccmtjal(request):
+    return render(request, 'ccmtj/ccmtjal.html')
+
+def leve_para_casa(request):
+    return render(request, 'ccmtj/leve-para-casa.html')
