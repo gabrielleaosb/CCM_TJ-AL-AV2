@@ -52,3 +52,14 @@
 .font-FuturaDemi {
     font-family: 'FuturaDemi', sans-serif;
 }
+
+@font-face {
+    font-family: 'FuturaExtraBold';
+    src: url(../fonts/FuturaPTExtraBold.otf) format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+.font-FuturaExtraBold {
+    font-family: 'FuturaExtraBold', sans-serif;
+}
