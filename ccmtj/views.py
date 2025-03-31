@@ -13,3 +13,6 @@ def qr_scan(request):
 
 def agenda(request):
     return render(request, 'ccmtj/agenda.html')
+
+def acessibilidade(request):
+    return render(request, 'ccmtj/acessibilidade.html')
