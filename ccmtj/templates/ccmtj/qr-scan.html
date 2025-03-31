@@ -9,7 +9,7 @@
     <link href="{% static '/ccmtj/css/styles.css' %}" rel="stylesheet">
 </head>
 <body class="h-screen flex flex-col bg-[#071F49]">
-    <nav class="absolute top-[32px] left-[48px]">
+    <nav class="absolute top-[32px] left-[36px]">
         <a class="w-[50px] h-[50px] bg-[#57A45D] rounded-full flex items-center justify-center cursor-pointer" href="{% url 'home' %}">
             <img src="{% static 'ccmtj/icons/seta-voltar-pagina.svg' %}" alt="Voltar página" class="w-[30px] ml-[-4px]">
         </a>
@@ -29,6 +29,7 @@
         </div>
     </div>
 
-    <script src="ccmtj/js/qr-scan.js"></script>
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+    <script src="{% static 'ccmtj/js/qr-scan.js' %}"></script>
 </body>
 </html>

@@ -1,31 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
     const scanBtn = document.getElementById("scan-btn");
+    const reader = document.getElementById("reader");
 
-    function startScanner() {
-        const scanner = new Html5Qrcode("reader");
+    scanBtn.addEventListener("click", () => {
+        reader.classList.remove("hidden"); 
 
-        document.getElementById("reader").classList.remove("hidden");
+        const html5QrCode = new Html5Qrcode("reader");
 
-        scanner.start(
+        html5QrCode.start(
             { facingMode: "environment" }, 
             {
-                fps: 10, 
+                fps: 10, // Frames por segundo
                 qrbox: { width: 250, height: 250 }, 
             },
-            (decodedText) => {
+            (decodedText, decodedResult) => {
                 alert("QR Code detectado: " + decodedText);
-
-                scanner.stop();
-                document.getElementById("reader").classList.add("hidden");
+                html5QrCode.stop(); 
+                reader.classList.add("hidden"); 
             },
             (errorMessage) => {
-                console.log("Erro: " + errorMessage);
+                console.log("Erro ao escanear: ", errorMessage);
             }
-        ).catch(err => {
-            console.log("Erro ao iniciar o scanner: ", err);
-        });
-    }
-    scanBtn.addEventListener("click", function () {
-        startScanner();
+        ).catch(err => console.log("Erro ao iniciar câmera:", err));
     });
 });
