@@ -9,6 +9,26 @@
     <link href="{% static '/ccmtj/css/styles.css' %}" rel="stylesheet">
 </head>
 <body class="min-h-screen flex flex-col items-center justify-start bg-[#071F49]">
-    
+    <nav
+        class="fixed top-0 left-0 bg-[#69AABC] flex flex-row items-center h-[64px] w-[238px] rounded-br-full justify-center gap-4">
+        <a id="back-nav-button" href="{% url 'home' %}"
+            class="flex items-center justify-center w-10 h-10 bg-[#071F49] rounded-full ml-[-6px]">
+            <img src="{% static 'ccmtj/icons/seta-voltar-pagina.svg' %}" alt="Botao voltar página inicial"
+                class="w-6 h-12 object-contain">
+        </a>
+        <a href="{% url 'qr-scan' %}" class="flex items-center justify-center w-14 h-14">
+            <img src="{% static 'ccmtj/icons/escanear.svg' %}" alt="Botao escanear QRCODE"
+                class="w-14 h-14 object-contain">
+        </a>
+        <a href="{% url 'home' %}" class="flex items-center justify-center w-14 h-14 ml-[-6px]">
+            <img src="{% static 'ccmtj/icons/home.svg' %}" alt="Botao escanear QRCODE" class="w-12 h-12 object-contain">
+        </a>
+    </nav>
+    <img src="{% static 'ccmtj/images/logo-ccmtj.png' %}" alt="Logo CCMTJAL"
+        class="w-[104px] h-[104px] mt-28 mb-[42px]">
+    <div class="w-[273px] h-[69px] bg-[#69AABC] rounded-full flex flex-row justify-left items-center gap-8">
+        <img src="{% static 'ccmtj/icons/agenda.svg' %}" alt="Icone Selfie" class="w-14 h-14 ml-[26px]">
+        <span class="font-FuturaMedium text-white text-[18px]">AGENDA</span>
+    </div>
 </body>
 </html>
