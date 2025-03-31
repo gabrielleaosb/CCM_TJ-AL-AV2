@@ -8,5 +8,6 @@ urlpatterns = [
     path('agenda/', agenda, name='agenda'),
     path('acessibilidade/', acessibilidade, name='acessibilidade'),
     path('ccmtjal/', ccmtjal, name='ccmtjal'),
-    
+    path('leve-para-casa', leve_para_casa, name='leve-para-casa')
+
 ]
