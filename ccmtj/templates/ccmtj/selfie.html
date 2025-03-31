@@ -8,18 +8,17 @@
     {% load static %}
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="{% static '/ccmtj/css/styles.css' %}" rel="stylesheet">
-    <script src="{% static 'ccmtj/js/selfie.js' %}"></script>
 </head>
 
 <body class="h-screen flex flex-col items-center justify-start bg-[#071F49]">
     <nav
         class="fixed top-0 left-0 bg-[#943130] flex flex-row items-center h-[64px] w-[238px] rounded-br-full justify-center gap-4">
-        <a href="{% url 'home' %}"
+        <a id="back-nav-button" href="{% url 'home' %}"
             class="flex items-center justify-center w-10 h-10 bg-[#071F49] rounded-full ml-[-6px]">
             <img src="{% static 'ccmtj/icons/seta-voltar-pagina.svg' %}" alt="Botao voltar página inicial"
                 class="w-6 h-12 object-contain">
         </a>
-        <a href="#" class="flex items-center justify-center w-14 h-14">
+        <a href="{% url 'qr-scan' %}" class="flex items-center justify-center w-14 h-14">
             <img src="{% static 'ccmtj/icons/escanear.svg' %}" alt="Botao escanear QRCODE"
                 class="w-14 h-14 object-contain">
         </a>
@@ -66,7 +65,24 @@
         </div>
     </div>
 
-    <footer class="w-full min-h-[75px] bg-black flex items-center justify-center opacity-15 mt-40">
+    <div id="hidden-content" class="hidden flex flex-col items-center relative w-full">
+        <div class="relative w-full flex justify-end px-4">
+            <img id="related-image" src="" alt="Imagem relacionada" 
+                 class="w-[341px] h-auto object-contain mr-[-20px]">
+            
+            <button class="absolute left-10 top-[-20px] w-[128px] h-[128px] rounded-full bg-[#051833] flex flex-col items-center justify-center cursor-pointer">
+                <img src="{% static 'ccmtj/icons/tirar-selfie.svg' %}" alt="Ícone Selfie" class="w-[90px] h-[90px] object-contain">
+                <span class="font-FuturaDemi text-[12px] text-white mt-[-10px]">TIRAR SELFIE</span>
+            </button>
+            <span id="character-name" class="font-FuturaBold text-[18px] absolute left-10 top-[126px] text-bold text-white text-center uppercase w-full max-w-[140px]"></span>
+        </div>
+    
+        <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[90%] max-w-[380px] bg-black opacity-46 p-4 rounded-[50px]">
+            <p id="image-description" class="text-white font-FuturaMedium text-[13px] text-center"></p>
+        </div>
+    </div>
+
+    <footer class="w-full min-h-[75px] bg-black flex items-center justify-center opacity-15 mt-30">
         <p class="text-white font-FuturaMedium text-[17px]">Imagens meramente ilustrativas</p>
     </footer>
     
@@ -76,20 +92,46 @@
             {
                 "imagem": "{{ thumb.imagem.url }}",
                 "nome": "{{ thumb.nome }}",
+                "personagemSelfie": "{{ thumb.personagemSelfie.url }}",
+                "descricao": "{{ thumb.descricao|escapejs }}"
             },
             {% endfor %}
         ];
 
         let currentIndex = 0;
+        let isViewingDescription = false;
 
         function updateImage() {
             const imageElement = document.getElementById('displayed-image');
             const nameElement = document.getElementById('image-name');
-            if (thumbs.length > 0) {
+            if (thumbs.length > 0 && thumbs[currentIndex].imagem) {
                 imageElement.src = thumbs[currentIndex].imagem;
                 nameElement.innerText = thumbs[currentIndex].nome;
             }
         }
+
+        function backToImageNavigation() {
+            document.getElementById('displayed-image').style.display = "block";
+            document.getElementById('image-name').style.display = "block";
+            document.getElementById('image-navbar').style.display = "flex";
+            
+            document.getElementById('hidden-content').classList.add('hidden');
+            
+            isViewingDescription = false;
+            
+            document.getElementById('back-nav-button').setAttribute('href', "{% url 'home' %}");
+        }
+
+        function goToHome() {
+            window.location.href = "{% url 'home' %}";
+        }
+
+        document.getElementById('back-nav-button').addEventListener('click', function(e) {
+            if (isViewingDescription) {
+                e.preventDefault(); 
+                backToImageNavigation();
+            }
+        });
 
         document.getElementById('prev').addEventListener('click', function () {
             if (currentIndex > 0) {
@@ -113,7 +155,23 @@
             this.style.display = "none";
             document.getElementById('image-name').style.display = "none";
             document.getElementById('image-navbar').style.display = "none";
-        })
+            
+            const hiddenContent = document.getElementById('hidden-content');
+            const relatedImage = document.getElementById('related-image');
+            const imageDescription = document.getElementById('image-description');
+            const characterName = document.getElementById('character-name');
+            
+            if (thumbs[currentIndex].personagemSelfie) {
+                relatedImage.src = thumbs[currentIndex].personagemSelfie;
+            }
+            imageDescription.textContent = thumbs[currentIndex].descricao;
+            characterName.textContent = thumbs[currentIndex].nome;
+            hiddenContent.classList.remove('hidden');
+            
+            isViewingDescription = true;
+
+            document.getElementById('back-nav-button').removeAttribute('href');
+        });
 
         updateImage();
     </script>

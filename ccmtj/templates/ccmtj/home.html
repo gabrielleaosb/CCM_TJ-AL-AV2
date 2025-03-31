@@ -21,7 +21,7 @@
     <!-- Grid Botoes -->
     <div class="grid grid-cols-2 gap-x-28 gap-y-10">
         <!-- Botao Ler QRCODE -->
-        <a href="#" class="flex flex-col items-center space-y-2 w-full">
+        <a href="{% url 'qr-scan' %}" class="flex flex-col items-center space-y-2 w-full">
             <img src="{% static 'ccmtj/icons/escanear.svg' %}" alt="Escanear" class="w-12 h-12">
             <span class="text-sm font-FuturaMedium text-white">LER QRCODE</span>
         </a>
