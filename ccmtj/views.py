@@ -22,3 +22,6 @@ def ccmtjal(request):
 
 def leve_para_casa(request):
     return render(request, 'ccmtj/leve-para-casa.html')
+
+def info_app(request):
+    return render(request, 'ccmtj/info-app.html')
