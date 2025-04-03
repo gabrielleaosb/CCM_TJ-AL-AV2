@@ -6,7 +6,9 @@
     <title>{% block title %}CCM TJ AL{% endblock %}</title>
     {% load static %}
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr"></script>
     <link href="{% static '/ccmtj/css/styles.css' %}" rel="stylesheet">
+    <script src="{% static 'ccmtj/js/qr-scan.js' %}" defer></script>
 </head>
 <body class="h-screen flex flex-col bg-[#071F49]">
     <nav class="absolute top-[32px] left-[36px]">
@@ -20,16 +22,14 @@
              class="w-[130px] h-[130px] mt-4 mb-6">
     
         <div class="relative bg-white w-[364px] h-[550px] rounded-[30px] border border-[#707070] flex flex-col items-center justify-center">
-            <div id="reader" class="w-[300px] h-[300px] hidden"></div>
-
-            <button id="scan-btn" class="absolute bottom-[-25px] left-1/2 -translate-x-1/2 
-                           w-[72px] h-[72px] rounded-full flex items-center justify-center cursor-pointer">
-                <img src="{% static 'ccmtj/icons/botao-de-tirar-foto.svg' %}" alt="Botão" class="w-[90px] h-[90px] object-cover">
+            <video id="video" class="absolute inset-0 w-full h-full object-cover rounded-[30px]"></video>
+            
+            <canvas id="canvas" class="hidden"></canvas>
+            <button id="scan-btn" class="absolute bottom-[-30px] left-1/2 -translate-x-1/2 
+                           w-[72px] h-[72px] rounded-full flex items-center justify-center bg-[#57A45D] shadow-lg">
+                <img src="{% static 'ccmtj/icons/botao-de-tirar-foto.svg' %}" alt="Botão" class="w-[50px] h-[50px]">
             </button>
         </div>
     </div>
-
-    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
-    <script src="{% static 'ccmtj/js/qr-scan.js' %}"></script>
 </body>
 </html>
