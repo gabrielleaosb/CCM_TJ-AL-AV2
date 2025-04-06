@@ -163,6 +163,14 @@
             
             if (thumbs[currentIndex].personagemSelfie) {
                 relatedImage.src = thumbs[currentIndex].personagemSelfie;
+
+                if (thumbs[currentIndex].personagemSelfie.includes('Tia_Marcelina.png')) {
+                    relatedImage.classList.remove('w-[341px]');
+                    relatedImage.classList.add('w-[250px]');
+                } else {
+                    relatedImage.classList.remove("w-[250px]");
+                    relatedImage.classList.add("w-[341px]");
+                }
             }
             imageDescription.textContent = thumbs[currentIndex].descricao;
             characterName.textContent = thumbs[currentIndex].nome;
