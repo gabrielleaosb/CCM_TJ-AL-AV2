@@ -24,4 +24,8 @@ def leve_para_casa(request):
     return render(request, 'ccmtj/leve-para-casa.html')
 
 def info_app(request):
-    return render(request, 'ccmtj/info-app.html')
+    origem = request.GET.get('from', 'home')
+    return render(request, 'ccmtj/info-app.html', {'origem': origem})
+
+def ficha_tecnica(request):
+    return render(request, 'ccmtj/ficha-tecnica.html')
