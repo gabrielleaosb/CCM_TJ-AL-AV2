@@ -21,7 +21,7 @@
     <!-- Grid Botoes -->
     <div class="grid grid-cols-2 gap-x-28 gap-y-10">
         <!-- Botao Ler QRCODE -->
-        <a href="{% url 'qr-scan' %}" class="flex flex-col items-center space-y-2 w-full">
+        <a href="{% url 'qr_scan' %}" class="flex flex-col items-center space-y-2 w-full">
             <img src="{% static 'ccmtj/icons/escanear.svg' %}" alt="Escanear" class="w-12 h-12">
             <span class="text-sm font-FuturaMedium text-white">LER QRCODE</span>
         </a>
@@ -36,7 +36,7 @@
             <span class="text-sm font-FuturaMedium text-white">AGENDA</span>
         </a>
         <!-- Botao leve para Casa -->
-        <a href="{% url 'leve-para-casa' %}" class="flex flex-col items-center space-y-2 w-full">
+        <a href="{% url 'leve_para_casa' %}" class="flex flex-col items-center space-y-2 w-full">
             <img src="{% static 'ccmtj/icons/home.svg' %}" alt="Leve para casa" class="w-12 h-12">
             <span class="text-sm font-FuturaMedium text-white">LEVE PARA CASA</span>
         </a>
@@ -61,8 +61,8 @@
             nos painéis, e tenha uma experiência ampliada
         </span>
     </div>
-    <div class="flex flex-col items-center mt-6 mb-2">
-        <a href="{% url 'info-app' %}" class="flex flex-col items-center space-y-2">
+    <div class="flex flex-col items-center mt-10 mb-2">
+        <a href="{% url 'info_app' %}?from=home" class="flex flex-col items-center space-y-2">
             <img src="{% static 'ccmtj/icons/info-app.svg' %}" alt="Info App" class="h-5 w-5">
             <span class="text-xs font-FuturaBook text-white">SOBRE O APP</span>
         </a>
