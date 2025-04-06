@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CCM TJ AL{% endblock %}</title>
+    {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="{% static '/ccmtj/css/styles.css' %}" rel="stylesheet">
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start bg-[#071F49]">
+    <nav
+        class="fixed top-0 left-0 bg-[#7089C5] flex flex-row items-center h-[64px] w-[238px] rounded-br-full justify-center gap-4">
+        <a id="back-nav-button" href="{% url 'home' %}"
+            class="flex items-center justify-center w-10 h-10 bg-[#071F49] rounded-full ml-[-6px]">
+            <img src="{% static 'ccmtj/icons/seta-voltar-pagina.svg' %}" alt="Botao voltar página inicial"
+                class="w-6 h-12 object-contain">
+        </a>
+        <a href="{% url 'qr_scan' %}" class="flex items-center justify-center w-14 h-14">
+            <img src="{% static 'ccmtj/icons/escanear.svg' %}" alt="Botao escanear QRCODE"
+                class="w-14 h-14 object-contain">
+        </a>
+        <a href="{% url 'home' %}" class="flex items-center justify-center w-14 h-14 ml-[-6px]">
+            <img src="{% static 'ccmtj/icons/home.svg' %}" alt="Botao escanear QRCODE" class="w-12 h-12 object-contain">
+        </a>
+    </nav>
+    <img src="{% static 'ccmtj/images/logo-ccmtj.png' %}" alt="Logo CCMTJAL"
+        class="w-[130px] h-[130px] mt-28 mb-[42px]">
+    <div class="w-[234px] h-[69px] bg-[#7089C5] rounded-full flex flex-row justify-left items-center gap-2">
+        <img src="{% static 'ccmtj/icons/acessibilidade.svg' %}" alt="Icone Selfie" class="w-14 h-14 ml-[20px]">
+        <span class="font-FuturaMedium text-white text-[17px]">ACESSIBILIDADE</span>
+    </div>
+    <div class="flex flex-col items-center px-[60px] mt-[47px]">
+        <p class="font-FuturaLight text-white text-[17px]">
+            O
+            <span class="font-FuturaDemi text-white text-[17px]">Centro de Cultura e Memória TJ/AL</span>
+            possui pontos de acessibilidade
+        </p>
+        <div class="grid grid-cols-2 gap-x-[77px] mt-10 w-full max-w-[500px] gap-y-14">
+            <div class="flex flex-col items-center text-center gap-4">
+                <a href="{% url 'acessibilidade_audio_descricao' %}" class="w-[91px] h-[91px] bg-[#7089C5] rounded-[10px]">
+                    <img src="{% static 'ccmtj/icons/audio-desc.svg' %}" alt="audio-descrição">
+                </a>
+                <span class="font-FuturaMedium text-white text-[17px]">AUDIODESCRIÇÃO</span>
+            </div>
+            <div class="flex flex-col items-center text-center gap-4">
+                <a href="{% url 'acessibilidade_braile' %}" class="w-[91px] h-[91px] bg-[#7089C5] rounded-[10px] flex items-center justify-center">
+                    <img src="{% static 'ccmtj/icons/braile.svg' %}" alt="Braile" class="h-[80px] w-[80px]">
+                </a>
+                <span class="font-FuturaMedium text-white text-[17px]">BRAILE</span>
+            </div>
+            <div class="flex flex-col items-center text-center gap-4">
+                <a href="{% url 'acessibilidade_video_com_libras' %}" class="w-[91px] h-[91px] bg-[#7089C5] rounded-[10px] flex items-center justify-center">
+                    <img src="{% static 'ccmtj/icons/libras.svg' %}" alt="Video com libras" class="h-[80px] w-[80px]">
+                </a>
+                <span class="font-FuturaMedium text-white text-[17px]">VÍDEO COM LIBRAS</span>
+            </div>
+            <div class="flex flex-col items-center text-center gap-4">
+                <a href="{% url 'acessibilidade_video_com_legendas' %}" class="w-[91px] h-[91px] bg-[#7089C5] rounded-[10px] flex items-center justify-center">
+                    <img src="{% static 'ccmtj/icons/videos-legendas.svg' %}" alt="Video com Legendas" class="h-[76px] w-[76px]">
+                </a>
+                <span class="font-FuturaMedium text-white text-[17px]">VÍDEOS COM LEGENDAS</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
