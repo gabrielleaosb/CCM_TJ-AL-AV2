@@ -6,3 +6,5 @@ __pycache__/
 venv/
 cert.pem
 key.pem
+cert.crt
+cert.key
