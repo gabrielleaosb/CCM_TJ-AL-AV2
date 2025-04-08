@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CCM TJ AL{% endblock %}</title>
+    {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="{% static '/ccmtj/css/styles.css' %}" rel="stylesheet">
+    <script src="{% static 'ccmtj/js/audio-player.js' %}" defer></script>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start bg-[#071F49]">
+    <nav
+        class="fixed top-0 left-0 bg-[#7089C5] flex flex-row items-center h-[64px] w-[238px] rounded-br-full justify-center gap-4">
+        <a id="back-nav-button" href="{% url 'acessibilidade' %}"
+            class="flex items-center justify-center w-10 h-10 bg-[#071F49] rounded-full ml-[-6px]">
+            <img src="{% static 'ccmtj/icons/seta-voltar-pagina.svg' %}" alt="Botao voltar página inicial"
+                class="w-6 h-12 object-contain">
+        </a>
+        <a href="{% url 'qr_scan' %}" class="flex items-center justify-center w-14 h-14">
+            <img src="{% static 'ccmtj/icons/escanear.svg' %}" alt="Botao escanear QRCODE"
+                class="w-14 h-14 object-contain">
+        </a>
+        <a href="{% url 'home' %}" class="flex items-center justify-center w-14 h-14 ml-[-6px]">
+            <img src="{% static 'ccmtj/icons/home.svg' %}" alt="Botao escanear QRCODE" class="w-12 h-12 object-contain">
+        </a>
+    </nav>
+    <img src="{% static 'ccmtj/images/logo-ccmtj.png' %}" alt="Logo CCMTJAL"
+        class="w-[130px] h-[130px] mt-28 mb-[42px]">
+    <div class="flex flex-row gap-6 items-center">
+        <div class="w-[60px] h-[60px] bg-[#7089C5] rounded-[6px]">
+            <img src="{% static 'ccmtj/icons/audio-desc.svg' %}" alt="Audio Descrição">
+        </div>
+        <h1 class="font-FuturaMedium text-[18px] text-white">AUDIODESCRIÇÃO</h1>
+    </div>
+    <div class="w-full flex flex-col items-center justify-center mt-[86px] gap-18">
+        {% for audio in audio_list %}
+            <div class="audio-player w-full flex flex-col items-center gap-4">
+                <div class="w-[394px] h-[41px] rounded-[28px] bg-[#041428] flex items-center justify-start pl-10">
+                    <h1 class="text-[#E7EBE0] font-FuturaBook text-[18px]">{{ audio.titulo }}</h1>
+                </div>
+                <div class="w-full h-[41px] bg-[#041428] flex items-center justify-center">
+                    <button class="playPauseBtn text-white mr-2 cursor-pointer">
+                        <img class="playPauseIcon w-[20px] h-[20px]" src="{% static 'ccmtj/icons/play-button.svg' %}" alt="Play">
+                    </button>
+                    <input type="range" class="progress w-[325px] h-1 accent-blue-500 cursor-pointer" min="0" max="100" step="0.1" value="0">
+                    <audio class="customAudio hidden">
+                        <source src="{{ audio.audio.url }}" type="audio/mp3">
+                        Seu navegador não suporta o elemento áudio.
+                    </audio>
+                </div>
+                <div class="flex flex-col w-full junstify-start pl-16 mt-4">
+                    <p class="font-FuturaBook text-[16px] text-[#E7EBE0]">Interpretação: Nome Aqui</p>
+                    <p class="font-FuturaBook text-[16px] text-[#E7EBE0]">Texto: Nome Aqui</p>
+                    <p class="font-FuturaBook text-[16px] text-[#E7EBE0]">Trilha: Nome Aqui</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

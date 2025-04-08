@@ -8,3 +8,11 @@ class SelfieHistorica(models.Model):
 
     def __str__(self):
         return self.nome
+
+
+class AudioDescricao(models.Model):
+    titulo = models.CharField(max_length=255)
+    audio = models.FileField(upload_to='audios/')
+
+    def __str__(self):
+        return self.titulo

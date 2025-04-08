@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CCM TJ AL{% endblock %}</title>
+    {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="{% static '/ccmtj/css/styles.css' %}" rel="stylesheet">
+    <script src="{% static 'ccmtj/js/audio-player.js' %}" defer></script>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start bg-[#071F49]">
+    <nav
+        class="fixed top-0 left-0 bg-[#7089C5] flex flex-row items-center h-[64px] w-[238px] rounded-br-full justify-center gap-4">
+        <a id="back-nav-button" href="{% url 'acessibilidade' %}"
+            class="flex items-center justify-center w-10 h-10 bg-[#071F49] rounded-full ml-[-6px]">
+            <img src="{% static 'ccmtj/icons/seta-voltar-pagina.svg' %}" alt="Botao voltar página inicial"
+                class="w-6 h-12 object-contain">
+        </a>
+        <a href="{% url 'qr_scan' %}" class="flex items-center justify-center w-14 h-14">
+            <img src="{% static 'ccmtj/icons/escanear.svg' %}" alt="Botao escanear QRCODE"
+                class="w-14 h-14 object-contain">
+        </a>
+        <a href="{% url 'home' %}" class="flex items-center justify-center w-14 h-14 ml-[-6px]">
+            <img src="{% static 'ccmtj/icons/home.svg' %}" alt="Botao escanear QRCODE" class="w-12 h-12 object-contain">
+        </a>
+    </nav>
+    <img src="{% static 'ccmtj/images/logo-ccmtj.png' %}" alt="Logo CCMTJAL"
+        class="w-[130px] h-[130px] mt-28 mb-[42px]">
+    <div class="flex flex-row gap-6 items-center">
+        <div class="w-[60px] h-[60px] bg-[#7089C5] rounded-[6px] items-center justify-center flex">
+            <img src="{% static 'ccmtj/icons/braile.svg' %}" alt="Audio Descrição" class="w-[55px] h-[55px]">
+        </div>
+        <h1 class="font-FuturaMedium text-[18px] text-white">BRAILE</h1>
+    </div>
+    <div class="mx-[50px] mb-10 mt-[32px]">
+        <p class="font-FuturaLight text-white text-[17px] text-left">O
+        <span class="font-FuturaDemi text-white text-[17px]">Centro de Cultura e Memória do Tribunal de Justiça de Alagoas (CCMTJ/AL)</span>
+             tem o prazer de anunciar uma importante
+             iniciativa para tornar a experiência cultural e histórica ainda mais inclusiva: agora, os painéis de conteúdo histórico
+              da justiça alagoana contam com acessibilidade em braille. Este avanço representa um compromisso com a acessibilidade e o 
+              respeito à diversidade, visando garantir que todos, independentemente de suas condições visuais, possam ter acesso às ricas
+               histórias e informações que compõem o acervo do Centro. <br> <br> A inclusão do braille nos painéis permite que pessoas com deficiência
+                visual explorem de forma autônoma as informações sobre a trajetória da Justiça em Alagoas, desde seus primeiros passos até as
+                 mudanças e marcos que moldaram a história do Judiciário no estado. Com esse recurso, a história e o legado do Tribunal de Justiça
+                  de Alagoas ficam ao alcance de um público ainda mais amplo, reforçando o compromisso da instituição em promover o acesso igualitário
+                   ao conhecimento e à memória cultural. <br>  <br> Além de valorizar o patrimônio histórico, esta iniciativa está alinhada com os princípios de inclusão
+                    social e cidadania, fundamentais para a construção de uma sociedade mais justa e acolhedora. Convidamos todos a conhecerem o CCMTJ/AL e 
+                    vivenciarem essa nova experiência de acessibilidade e inclusão, um marco que enriquece ainda mais o nosso compromisso com a justiça e com a
+                     sociedade alagoana.</p>
+    </div>
+</body>
+</html>
