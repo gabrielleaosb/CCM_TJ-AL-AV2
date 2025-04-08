@@ -36,7 +36,7 @@
             <span class="font-FuturaDemi text-white text-[17px]">Centro de Cultura e Memória TJ/AL</span>
             possui pontos de acessibilidade
         </p>
-        <div class="grid grid-cols-2 gap-x-[77px] mt-10 w-full max-w-[500px] gap-y-14">
+        <div class="grid grid-cols-2 gap-x-[60px] mt-10 w-full max-w-[500px] gap-y-14">
             <div class="flex flex-col items-center text-center gap-4">
                 <a href="{% url 'acessibilidade_audio_descricao' %}" class="w-[91px] h-[91px] bg-[#7089C5] rounded-[10px]">
                     <img src="{% static 'ccmtj/icons/audio-desc.svg' %}" alt="audio-descrição">
@@ -53,13 +53,15 @@
                 <a href="{% url 'acessibilidade_video_com_libras' %}" class="w-[91px] h-[91px] bg-[#7089C5] rounded-[10px] flex items-center justify-center">
                     <img src="{% static 'ccmtj/icons/libras.svg' %}" alt="Video com libras" class="h-[80px] w-[80px]">
                 </a>
-                <span class="font-FuturaMedium text-white text-[17px]">VÍDEO COM LIBRAS</span>
+                <span class="font-FuturaMedium text-white text-[17px] whitespace-pre-line">VÍDEO COM
+                     LIBRAS</span>
             </div>
             <div class="flex flex-col items-center text-center gap-4">
                 <a href="{% url 'acessibilidade_video_com_legendas' %}" class="w-[91px] h-[91px] bg-[#7089C5] rounded-[10px] flex items-center justify-center">
                     <img src="{% static 'ccmtj/icons/videos-legendas.svg' %}" alt="Video com Legendas" class="h-[76px] w-[76px]">
                 </a>
-                <span class="font-FuturaMedium text-white text-[17px]">VÍDEOS COM LEGENDAS</span>
+                <span class="font-FuturaMedium text-white text-[17px] whitespace-pre-line">VÍDEOS COM
+                     LEGENDAS</span>
             </div>
         </div>
     </div>

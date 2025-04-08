@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CCM TJ AL{% endblock %}</title>
+    {% load static %}
+    <link href="{% static '/ccmtj/css/output.css' %}" rel="stylesheet">
+    <link href="{% static '/ccmtj/css/styles.css' %}" rel="stylesheet">
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start bg-[#071F49]">
+    <nav
+        class="fixed top-0 left-0 bg-[#7089C5] flex flex-row items-center h-[64px] w-[238px] rounded-br-full justify-center gap-4">
+        <a id="back-nav-button" href="{% url 'acessibilidade' %}"
+            class="flex items-center justify-center w-10 h-10 bg-[#071F49] rounded-full ml-[-6px]">
+            <img src="{% static 'ccmtj/icons/seta-voltar-pagina.svg' %}" alt="Botao voltar página inicial"
+                class="w-6 h-12 object-contain">
+        </a>
+        <a href="{% url 'qr_scan' %}" class="flex items-center justify-center w-14 h-14">
+            <img src="{% static 'ccmtj/icons/escanear.svg' %}" alt="Botao escanear QRCODE"
+                class="w-14 h-14 object-contain">
+        </a>
+        <a href="{% url 'home' %}" class="flex items-center justify-center w-14 h-14 ml-[-6px]">
+            <img src="{% static 'ccmtj/icons/home.svg' %}" alt="Botao escanear QRCODE" class="w-12 h-12 object-contain">
+        </a>
+    </nav>
+    <img src="{% static 'ccmtj/images/logo-ccmtj.png' %}" alt="Logo CCMTJAL"
+        class="w-[130px] h-[130px] mt-28 mb-[42px]">
+    <div class="flex flex-row bg-[#7089C5] w-[227px] h-[69px] rounded-[40px] items-center justify-center gap-2">
+        <img src="{% static 'ccmtj/icons/video.svg' %}" alt="icone Video" class="w-[38px] h-[38px]">
+        <span class="font-FuturaMedium text-white text-[14px]">VÍDEOS COM LEGENDAS</span>
+    </div>
+    <div class="flex flex-col gap-6">
+        <div class="flex flex-col w-[320px] items-center mt-10 gap-4">
+            <div class="bg-white w-[307px] h-[163px] flex items-center justify-center cursor-pointer">
+                <img class="w-[38px] h-[38px] cursor-pointer" src="{% static 'ccmtj/icons/play-button-escuro.svg' %}" alt="Play">
+            </div>
+            <span class="font-FuturaDemi text-white text-[17px] flex items-start w-[300px]">A Mulher no Judiciário Alagoano</span>
+        </div>
+        <div class="flex flex-col w-[320px] items-center mt-10 gap-4">
+            <div class="bg-white w-[307px] h-[163px] flex items-center justify-center corsor-pointer">
+                <img class="w-[38px] h-[38px] corsor-pointer" src="{% static 'ccmtj/icons/play-button-escuro.svg' %}" alt="Play">
+            </div>
+            <span class="font-FuturaDemi text-white text-[17px] flex items-start w-[300px]">O Impeachment de Muniz Falcão 1957 - Alagoas</span>
+        </div>
+    </div>
+</body>
+</html>
