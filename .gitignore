@@ -24,7 +24,6 @@ cert.key
 *.log
 *.pot
 *.pyc
-db.sqlite3
 media/
 staticfiles/
 local_settings.py
