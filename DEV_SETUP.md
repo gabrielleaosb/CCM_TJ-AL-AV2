@@ -4,7 +4,7 @@
 ## Clonando o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/seu-projeto.git
+git clone https://github.com/gabrielleaosb/CCM_TJ-AL-AV2
 cd seu-projeto
 ```
 
@@ -43,7 +43,7 @@ npm install -D @tailwindcss/cli
 Deixe esse comando rodando em um terminal separado:
 
 ```bash
-npx tailwindcss -i ./ccmtj/static/css/input.css -o ./ccmtj/static/ccmtj/css/output.css --watch
+npx tailwindcss -i ./ccmtj/static/ccmtj/css/input.css -o ./ccmtj/static/ccmtj/css/output.css --watch
 ```
 
 ## Aplicando as migrações
