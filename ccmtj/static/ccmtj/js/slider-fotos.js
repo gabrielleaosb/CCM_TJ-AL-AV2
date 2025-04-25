@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
   
     let isExpanded = false;
   
-    // Toggle Ler Mais/Menos
     if (container && button) {
       function checkContentHeight() {
         const contentHeight = container.scrollHeight;
