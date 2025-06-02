@@ -18,39 +18,31 @@
 <body class="min-h-screen flex flex-col items-center justify-start">
     <img src="{% static 'ccmtj/images/logo-ccmtj.png' %}" alt="APP CCMTJAL" class="w-[130px] h-[130px] mt-[60px] mb-10">
 
-    <!-- Grid Botoes -->
     <div class="grid grid-cols-2 gap-x-28 gap-y-10">
-        <!-- Botao Ler QRCODE -->
         <a href="{% url 'qr_scan' %}" class="flex flex-col items-center space-y-2 w-full">
             <img src="{% static 'ccmtj/icons/escanear.svg' %}" alt="Escanear" class="w-12 h-12">
             <span class="text-sm font-FuturaMedium text-white">LER QRCODE</span>
         </a>
-        <!-- Botao Selfie Histórica -->
         <a href="{% url 'selfie_historica' %}" class="flex flex-col items-center space-y-2 w-full">
             <img src="{% static 'ccmtj/icons/selfie.svg' %}" alt="Selfie Histórica" class="w-12 h-12">
             <span class="text-sm font-FuturaMedium text-white">SELFIE HISTÓRICA</span>
         </a>
-        <!-- Botao Agenda-->
         <a href="{% url 'agenda' %}" class="flex flex-col items-center space-y-2 w-full">
             <img src="{% static 'ccmtj/icons/agenda.svg' %}" alt="Agenda" class="w-12 h-12">
             <span class="text-sm font-FuturaMedium text-white">AGENDA</span>
         </a>
-        <!-- Botao leve para Casa -->
         <a href="{% url 'leve_para_casa' %}" class="flex flex-col items-center space-y-2 w-full">
             <img src="{% static 'ccmtj/icons/home.svg' %}" alt="Leve para casa" class="w-12 h-12">
             <span class="text-sm font-FuturaMedium text-white">LEVE PARA CASA</span>
         </a>
-        <!-- Botao Acessibilidade -->
         <a href="{% url 'acessibilidade' %}" class="flex flex-col items-center space-y-2 w-full">
             <img src="{% static 'ccmtj/icons/acessibilidade.svg' %}" alt="Acessibilidade" class="w-12 h-12">
             <span class="text-sm font-FuturaMedium text-white">ACESSIBILIDADE</span>
         </a>
-        <!-- Botao CCMTJAL -->
         <a href="{% url 'ccmtjal' %}" class="flex flex-col items-center space-y-2 w-full">
             <img src="{% static 'ccmtj/icons/ccmtjal.svg' %}" alt="CCMTJAL" class="w-12 h-12">
             <span class="text-sm font-FuturaMedium text-white">CCMTJAL</span>
         </a>
-        <!-- Botao Exposições -->
         <a href="{% url 'exposicoes' %}" class="flex flex-col items-center space-y-2 w-full">
             <img src="{% static 'ccmtj/icons/agenda.svg' %}" alt="Exposições" class="w-12 h-12">
             <span class="text-sm font-FuturaMedium text-white">EXPOSIÇÕES</span>

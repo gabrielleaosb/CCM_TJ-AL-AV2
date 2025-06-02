@@ -7,5 +7,5 @@ class ExposicoesView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         exposicoes = Exposicao.objects.all()
-        context["exposicoes"] = exposicoes  # ← ESSENCIAL para funcionar com o template atual
+        context["exposicoes"] = exposicoes  
         return context
