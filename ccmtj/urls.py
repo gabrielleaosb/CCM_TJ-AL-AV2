@@ -1,4 +1,5 @@
 from django.urls import path
+from .views_exposicoes import ExposicoesView
 from ccmtj.views import (
     home, selfie_historica, qr_scan, agenda, ccmtjal,
     acessibilidade_index, acessibilidade_audio_descricao, acessibilidade_braile, acessibilidade_video_com_libras,
@@ -6,7 +7,10 @@ from ccmtj.views import (
     leve_para_casa_index, leve_para_casa_videos, leve_para_casa_imagens, leve_para_casa_passeio_360, leve_para_casa_documentos,
     info_app, ficha_tecnica
 )
-
+from .views.selfie_view import (
+    SelfieListView, SelfieDetailView,
+    SelfieCreateView, SelfieUpdateView, SelfieDeleteView
+)
 
 urlpatterns = [
     path('', home, name='home'),
@@ -29,10 +33,20 @@ urlpatterns = [
     path('leve-para-casa/videos', leve_para_casa_videos, name='leve_para_casa_videos'),
     path('leve-para-casa/imagens', leve_para_casa_imagens, name='leve_para_casa_imagens'),
     path('leve-para-casa/passeio-360', leve_para_casa_passeio_360, name='leve_para_casa_passeio_360'),
-    path('leve-para-casa/documentos', leve_para_casa_documentos, name='leve_para_casa_documentos'),  
+    path('leve-para-casa/documentos', leve_para_casa_documentos, name='leve_para_casa_documentos'),
 
     # Info App
     path('info-app', info_app, name='info_app'),
-    path('ficha-tecnica', ficha_tecnica, name='ficha_tecnica')
+    path('ficha-tecnica', ficha_tecnica, name='ficha_tecnica'),
+
+    # CBVs - CRUD de SelfieHistorica
+    path('selfies/', SelfieListView.as_view(), name='selfie-list'),
+    path('selfie/<int:pk>/', SelfieDetailView.as_view(), name='selfie-detail'),
+    path('selfie/add/', SelfieCreateView.as_view(), name='selfie-add'),
+    path('selfie/<int:pk>/edit/', SelfieUpdateView.as_view(), name='selfie-edit'),
+    path('selfie/<int:pk>/delete/', SelfieDeleteView.as_view(), name='selfie-delete'),
+
+    # Exposições - Class-Based View
+    path('exposicoes/', ExposicoesView.as_view(), name='exposicoes'),
 
 ]

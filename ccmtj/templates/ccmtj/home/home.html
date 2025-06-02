@@ -50,7 +50,13 @@
             <img src="{% static 'ccmtj/icons/ccmtjal.svg' %}" alt="CCMTJAL" class="w-12 h-12">
             <span class="text-sm font-FuturaMedium text-white">CCMTJAL</span>
         </a>
+        <!-- Botao Exposições -->
+        <a href="{% url 'exposicoes' %}" class="flex flex-col items-center space-y-2 w-full">
+            <img src="{% static 'ccmtj/icons/agenda.svg' %}" alt="Exposições" class="w-12 h-12">
+            <span class="text-sm font-FuturaMedium text-white">EXPOSIÇÕES</span>
+        </a>
     </div>
+
     <div class="flex items-center justify-between w-80 h-24 rounded-full mt-14 pr-10 bg-[#08142c]">
         <div class="flex-shrink-0">
             <img src="{% static 'ccmtj/icons/mao-com-celular.svg' %}" alt="Mao com celular" class="w-16 h-32 object-cover">
@@ -61,6 +67,7 @@
             nos painéis, e tenha uma experiência ampliada
         </span>
     </div>
+
     <div class="flex flex-col items-center mt-10 mb-2">
         <a href="{% url 'info_app' %}?from=home" class="flex flex-col items-center space-y-2">
             <img src="{% static 'ccmtj/icons/info-app.svg' %}" alt="Info App" class="h-5 w-5">

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Minhas Selfies</h2>
+  <a href="{% url 'selfie-add' %}" class="btn btn-success mb-3">Nova Selfie</a>
+  <div class="row">
+    {% for selfie in object_list %}
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="{{ selfie.imagem.url }}" class="card-img-top" alt="{{ selfie.titulo }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ selfie.titulo }}</h5>
+            <a href="{% url 'selfie-detail' selfie.pk %}" class="btn btn-primary">Ver</a>
+            <a href="{% url 'selfie-edit' selfie.pk %}" class="btn btn-warning">Editar</a>
+            <a href="{% url 'selfie-delete' selfie.pk %}" class="btn btn-danger">Excluir</a>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p>Nenhuma selfie encontrada.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

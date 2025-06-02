@@ -30,10 +30,11 @@
     <img src="{% static 'ccmtj/images/logo-ccmtj.png' %}" alt="Logo CCMTJAL"
         class="w-[130px] h-[130px] mt-28 mb-[42px] object-contain">
 
-    <div class="w-[273px] h-[69px] bg-[#943130] rounded-full flex flex-row justify-left items-center gap-2">
-        <img src="{% static 'ccmtj/icons/selfie.svg' %}" alt="Icone Selfie" class="w-14 h-14 ml-[26px]">
-        <span class="font-FuturaMedium text-white text-[18px]">SELFIE HISTÓRICA</span>
-    </div>
+    <a href="{% url 'selfie_historica' %}" 
+   class="w-[273px] h-[69px] bg-[#943130] rounded-full flex flex-row justify-left items-center gap-2 hover:opacity-80 transition duration-200">
+    <img src="{% static 'ccmtj/icons/selfie.svg' %}" alt="Ícone Selfie" class="w-14 h-14 ml-[26px]">
+    <span class="font-FuturaMedium text-white text-[18px]">SELFIE HISTÓRICA</span>
+    </a>
 
     <div class="flex flex-col items-center gap-4 mt-[56px]">
         <!-- Controle de Navegação entre imagens -->

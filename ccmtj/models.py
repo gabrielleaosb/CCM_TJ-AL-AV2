@@ -16,3 +16,18 @@ class AudioDescricao(models.Model):
 
     def __str__(self):
         return self.titulo
+
+
+# NOVO MODELO PARA EXPOSIÇÕES
+class Exposicao(models.Model):
+    titulo = models.CharField("Título", max_length=200)
+    descricao = models.TextField("Descrição")
+    imagem = models.ImageField("Imagem", upload_to='exposicoes/', blank=True, null=True)
+    video_url = models.CharField("ID do Vídeo do YouTube", max_length=50, blank=True, null=True)
+
+    class Meta:
+        verbose_name = "Exposição"
+        verbose_name_plural = "Exposições"
+
+    def __str__(self):
+        return self.titulo

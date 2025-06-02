@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>{{ object.titulo }}</h2>
+  <img src="{{ object.imagem.url }}" class="img-fluid mb-3" alt="{{ object.titulo }}">
+  <p>{{ object.descricao }}</p>
+  <a href="{% url 'selfie-list' %}" class="btn btn-secondary">Voltar</a>
+  <a href="{% url 'selfie-edit' object.pk %}" class="btn btn-warning">Editar</a>
+  <a href="{% url 'selfie-delete' object.pk %}" class="btn btn-danger">Excluir</a>
+</div>
+{% endblock %}
