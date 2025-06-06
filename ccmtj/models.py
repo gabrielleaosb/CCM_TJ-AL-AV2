@@ -20,10 +20,36 @@ class AudioDescricao(models.Model):
 
 # NOVO MODELO PARA EXPOSIÇÕES
 class Exposicao(models.Model):
+    MEDIA_TYPE_CHOICES = [
+        ('image', 'Imagem'),
+        ('video', 'Vídeo'),
+    ]
+    
     titulo = models.CharField("Título", max_length=200)
     descricao = models.TextField("Descrição")
-    imagem = models.ImageField("Imagem", upload_to='exposicoes/', blank=True, null=True)
-    video_url = models.CharField("ID do Vídeo do YouTube", max_length=50, blank=True, null=True)
+    
+    media_type = models.CharField(
+        "Tipo de Mídia",
+        max_length=40,
+        choices=MEDIA_TYPE_CHOICES,
+        default='image'
+    )
+    
+    imagem = models.ImageField(
+        "Imagem",
+        upload_to='exposicoes/',
+        blank=True,
+        null=True,
+        help_text="Envie uma imagem se selecionou 'Imagem' como tipo de mídia"
+    )
+    
+    video_url = models.CharField(
+        "ID do Vídeo do YouTube",
+        max_length=50,
+        blank=True,
+        null=True,
+        help_text="Insira apenas o ID do vídeo (ex: lETYY1fCXuE) se selecionou 'Vídeo' como tipo de mídia"
+    )
 
     class Meta:
         verbose_name = "Exposição"

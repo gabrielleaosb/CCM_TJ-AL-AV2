@@ -18,4 +18,4 @@ def ccmtjal(request):
         "ig6p1OJjlhc"
     ]
 
-    return render(request, 'ccmtj/ccmtj/ccmtjal.html', {'texto': texto, 'fotos': fotos, 'videos': videos})
+    return render(request, 'ccmtj/exposicoes.html', {'texto': texto, 'fotos': fotos, 'videos': videos})
